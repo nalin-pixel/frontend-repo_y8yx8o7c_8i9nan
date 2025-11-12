@@ -4,25 +4,35 @@
 
 @layer base {
   :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   }
 
   html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-serif);
+    font-feature-settings: "rlig" 1, "calt" 1, "lnum" 1;
+    color-scheme: dark;
   }
 
   body {
     @apply antialiased;
+    background-color: #0b1f1a;
+    color: #f3ead7;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-serif);
+    letter-spacing: 0.01em;
+  }
+
+  code, pre, kbd, samp, .font-mono {
+    font-family: var(--font-mono);
+    background: rgba(181,139,87,0.08);
+    color: #e8deca;
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Subtle blueprint/graph overlay utility */
 @layer utilities {
   .animate-in {
     animation-name: animateIn;

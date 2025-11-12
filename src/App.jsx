@@ -1,26 +1,27 @@
-import { useState } from 'react'
+import Hero from './components/Hero'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import About from './components/About'
+import { useEffect } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    document.body.style.backgroundColor = '#0b1f1a'
+    return () => { document.body.style.backgroundColor = '' }
+  }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen font-serif" style={{ color: '#f3ead7' }}>
+      <Hero name="Your Name" />
+      <Skills />
+      <Projects />
+      <About />
+
+      <footer className="bg-[#0b1f1a] text-center py-8 text-[#e8deca]/70 border-t border-[#b58b57]/30">
+        <div className="container mx-auto px-6">
+          <div className="text-sm">© {new Date().getFullYear()} Alchemist of Information · Crafted with care</div>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }
